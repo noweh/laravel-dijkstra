@@ -1,0 +1,35 @@
+{
+  "name": "noweh/laravel-dijkstra",
+  "description": "Shortest path-algorithm in Laravel.",
+  "keywords": [
+    "laravel",
+    "dijkstra",
+    "graph"
+  ],
+  "require": {
+    "php": "^7.2 || ^8.0",
+    "laravel/framework": "^9.0 || >=8.61.0"
+  },
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Julien Schmitt",
+      "email": "jschmitt95@protonmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Noweh\\Dijkstra\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Noweh\\Dijkstra\\DijkstraServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
