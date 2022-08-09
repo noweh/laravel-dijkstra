@@ -35,6 +35,13 @@ class DijkstraServiceProvider extends ServiceProvider
                         database_path('migrations/' . date('Y_m_d_His', time()) . '_create_dijkstra_tables.php')
                 ], 'migrations');
             }
+
+            if (!file_exists(public_path('fonts/arial.ttf'))) {
+                $this->publishes([
+                    __DIR__ . '/../resources/fonts/Arial.ttf' =>
+                        public_path('fonts/arial.ttf')
+                ], 'migrations');
+            }
         }
     }
 }

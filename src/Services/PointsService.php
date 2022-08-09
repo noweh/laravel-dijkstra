@@ -22,7 +22,7 @@ class PointsService implements IPointsService
         if ($validator->validate()) {
             // fix a strange behaviour with SQL for INSERT INTO ... ON DUPLICATE KEY UPDATE ...
             DB::statement('ALTER TABLE ' . Point::query()->getQuery()->from . ' AUTO_INCREMENT = 0');
-            Point::upsert($points, ['x', 'y'], ['name']);
+            Point::upsert($points, ['name'], ['x', 'y']);
             DB::statement('ALTER TABLE ' . Point::query()->getQuery()->from . ' AUTO_INCREMENT = 0');
 
             foreach ($relations as $relation) {
