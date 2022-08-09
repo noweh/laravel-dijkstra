@@ -1,3 +1,11 @@
+# Dijkstra algorithm for Laravel
+
+[![Laravel](https://img.shields.io/badge/Laravel-v8/v9-828cb7.svg?logo=Laravel&color=FF2D20)](https://laravel.com/)
+![PHP](https://img.shields.io/badge/PHP-v7.3-828cb7.svg?style=flat-square)
+[![MIT Licensed](https://img.shields.io/github/license/noweh/laravel-dijkstra)](LICENSE)
+
+A laravel implementation of Dijkstra algorithm.
+
 ## Installation
 
 First you need to add the component to your composer.json
