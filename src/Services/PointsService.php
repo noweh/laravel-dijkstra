@@ -15,7 +15,7 @@ class PointsService implements IPointsService
     public function createStructure(array $points = [], array $relations = []): Collection
     {
         $validator = Validator::make($points, [
-            '*.name' => 'required|string|distinct',
+            '*.name' => 'required|string|max:1|distinct',
             '*.x' => 'required|integer',
             '*.y' => 'required|integer'
         ]);
@@ -41,7 +41,7 @@ class PointsService implements IPointsService
     public function addPoint(array $data = []): Point
     {
         $validator = Validator::make($data, [
-            'name' => 'required|string|distinct',
+            'name' => 'required|string|max:1|distinct',
             'x' => 'required|integer',
             'y' => 'required|integer'
         ]);

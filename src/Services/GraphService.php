@@ -39,7 +39,6 @@ class GraphService implements IGraphService
                 }
 
                 imageline($canvas, $x1, $y1, $x2, $y2, $black);
-                //imageline($canvas, $point->x, $point->y, $related->x, $related->y, $black);
             }
             imagefilledellipse($canvas, $point->x, $point->y, 30, 30, $black);
             imagettftext($canvas, 20, 0, $point->x-9, $point->y+10, $white, public_path('fonts/arial.ttf'), $point->name);
