@@ -3,6 +3,7 @@
 namespace Noweh\Dijkstra\Services;
 
 use DB;
+use Illuminate\Database\Eloquent\Model;
 use Validator;
 use Illuminate\Support\Collection;
 use Noweh\Dijkstra\Models\Point;
@@ -65,6 +66,7 @@ class PointsService implements IPointsService
             !$basePoint->points->contains($relatedPoint) && !$relatedPoint->points->contains($basePoint)
         ) {
             $basePoint->points()->attach($relatedPoint);
+            $relatedPoint->points()->attach($basePoint);
             return true;
         }
 
@@ -78,6 +80,7 @@ class PointsService implements IPointsService
 
         if ($basePoint && $relatedPoint && $basePoint->points->contains($relatedPoint)) {
             $basePoint->points()->detach($relatedPoint);
+            $relatedPoint->points()->detach($basePoint);
             return true;
         }
 
@@ -87,5 +90,10 @@ class PointsService implements IPointsService
     public function getPoints(): Collection
     {
         return Point::with('points')->get();
+    }
+
+    public function getPoint(string $name) : Model
+    {
+        return Point::with('points')->where('name', $name)->firstOrFail();
     }
 }

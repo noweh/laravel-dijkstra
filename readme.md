@@ -32,7 +32,7 @@ The migrations of this package are publishable under the "migrations" tag via:
 
 ## Usage
 
-### Operations with Points
+### Operations with Points and draw graph / find shortest path
 ```php
     <?php
 
@@ -41,30 +41,39 @@ The migrations of this package are publishable under the "migrations" tag via:
 
     // Create all points
     $pointsService->createStructure([
-        ['name' => 'A', 'x' => 50, 'y' => 20],
-        ['name' => 'B', 'x' => 20, 'y' => 28],
-        ['name' => 'C', 'x' => 37, 'y' => 36],
-        ['name' => 'D', 'x' => 47, 'y' => 50]
-    ], [
-        ['A' => 'B'],
-        ['A' => 'C'],
-        ['B' => 'D'],
-        ['C' => 'D']
-    ]);
+            ['name' => 'A', 'x' => 250, 'y' => 120],
+            ['name' => 'B', 'x' => 120, 'y' => 228],
+            // ...
+            ['name' => 'H', 'x' => 400, 'y' => 460]
+        ], [
+            ['A' => 'B'],
+            // ...
+            ['H' => 'D']
+        ]);
 
     // add One point
-    $pointsService->addPoint(['name' => 'E', 'x' => 60, 'y' => 30]);
+    $pointsService->addPoint(['name' => 'I', 'x' => 60, 'y' => 30]);
 
     // Remove one point
     $pointsService->removePoint('B');
 
     // Add relation
-    $pointsService->addRelation(['E' => 'B']);
+    $pointsService->addRelation(['E' => 'I']);
 
     // Remove relation
     $pointsService->removeRelation(['A' => 'B']);
 
     // Retrieve all points
     dump($pointsService->getPoints());
+
+    /** @var IGraphService $graphService */
+    $graphService = app(\Noweh\Dijkstra\Services\IGraphService::class);
+    $pointFrom = $pointsService->getPoint('B');
+    $pointTo = $pointsService->getPoint('C');
+    
+    dump($graphService->findShortestPath($pointFrom, $pointTo));
+    $graphService->drawGraph($pointFrom, $pointTo);
 ```
- 
+#### Display example with the use of the drawGraph() method
+
+<img src="assets/example1.png" width="350" alt="shortest path between B and C">
