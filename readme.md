@@ -4,7 +4,9 @@
 ![PHP](https://img.shields.io/badge/PHP-v7.3-828cb7.svg?style=flat-square)
 [![MIT Licensed](https://img.shields.io/github/license/noweh/laravel-dijkstra)](LICENSE)
 
-A laravel implementation of Dijkstra algorithm.
+A laravel implementation of [Dijkstra algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm).
+
+Dijkstra's algorithm, conceived by computer scientist Edsger Dijkstra, is a graph search algorithm that solves in single-source shortest path problem for a graph with non-negative edge path costs, producing a shortest path tree.
 
 ## Installation
 
@@ -72,6 +74,8 @@ The migrations of this package are publishable under the "migrations" tag via:
     $pointTo = $pointsService->getPoint('C');
     
     dump($graphService->findShortestPath($pointFrom, $pointTo));
+    
+    // Draw a Graph
     $graphService->drawGraph($pointFrom, $pointTo);
 ```
 #### Display example with the use of the drawGraph() method
