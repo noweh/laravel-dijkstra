@@ -75,5 +75,4 @@ The migrations of this package are publishable under the "migrations" tag via:
     $graphService->drawGraph($pointFrom, $pointTo);
 ```
 #### Display example with the use of the drawGraph() method
-
-<img src="assets/example1.png" width="350" alt="shortest path between B and C">
+![](assets/example1.png)

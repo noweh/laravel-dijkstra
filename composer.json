@@ -1,6 +1,6 @@
 {
   "name": "noweh/laravel-dijkstra",
-  "description": "Shortest path-algorithm in Laravel.",
+  "description": "Shortest path-algorithm for Laravel.",
   "keywords": [
     "laravel",
     "dijkstra",
