@@ -37,11 +37,9 @@ The migrations of this package are publishable under the "migrations" tag via:
 ### Operations with Points and draw graph / find shortest path
 ```php
     <?php
-    
-    use Dijkstra;
 
     /** @var IPointsService $pointsService */
-    $pointsService = Dijkstra::pointsService();
+    $pointsService = \Dijkstra::pointsService();
 
     // Create all points
     $pointsService->createStructure([
@@ -71,7 +69,7 @@ The migrations of this package are publishable under the "migrations" tag via:
     dump($pointsService->getPoints());
 
     /** @var IGraphService $graphService */
-    $graphService = Dijkstra::graphService();
+    $graphService = \Dijkstra::graphService();
     $pointFrom = $pointsService->getPoint('B');
     $pointTo = $pointsService->getPoint('C');
     
