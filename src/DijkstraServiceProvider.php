@@ -17,12 +17,18 @@ class DijkstraServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(IGraphService::class, function () {
-            return new GraphService();
-        });
+        $this->app->bind(
+            IGraphService::class,
+            GraphService::class
+        );
 
-        $this->app->bind(IPointsService::class, function () {
-            return new PointsService();
+        $this->app->bind(
+            IPointsService::class,
+            PointsService::class
+        );
+
+        $this->app->bind('Dijkstra', function () {
+            return new Dijkstra();
         });
     }
 
