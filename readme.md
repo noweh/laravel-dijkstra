@@ -39,7 +39,7 @@ The migrations of this package are publishable under the "migrations" tag via:
     <?php
 
     /** @var IPointsService $pointsService */
-    $pointsService = app(\Noweh\Dijkstra\Services\IPointsService::class);
+    $pointsService = \Dijkstra::pointsService();
 
     // Create all points
     $pointsService->createStructure([
@@ -69,7 +69,7 @@ The migrations of this package are publishable under the "migrations" tag via:
     dump($pointsService->getPoints());
 
     /** @var IGraphService $graphService */
-    $graphService = app(\Noweh\Dijkstra\Services\IGraphService::class);
+    $graphService = \Dijkstra::graphService();
     $pointFrom = $pointsService->getPoint('B');
     $pointTo = $pointsService->getPoint('C');
     
